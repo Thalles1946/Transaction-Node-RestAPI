@@ -1,6 +1,6 @@
 # Transaction-Node-RestAPI
 
-_This API works using Node, express, and fs, after cloning it, please use npm run initiate (THIS SCRIPT ONLY WORKS ON LINUX, IF YOU ARE USING ANOTHER SO, SEARCH FOR THE SCRIPT ON PACKAGE.JSON AND CHANGE IT TO DO THE SANE AT YOUR SO) so all packages can be downloaded and mock files initialized._
+_This API works using Node, express, and fs, after cloning it, please use npm run initiate (*THIS SCRIPT ONLY WORKS ON LINUX, IF YOU ARE USING ANOTHER SO, SEARCH FOR THE SCRIPT ON PACKAGE.JSON AND CHANGE IT TO DO THE SAME AT YOUR SO*) so all packages can be downloaded and mock files initialized._
 
 # Overview
 
