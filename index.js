@@ -1,7 +1,8 @@
 const express = require('express');
 const fs = require('fs');
 
-const rawData = fs.readFileSync('./Data/Mock-Data.json')
+const PATH = './data/Mock-Data.json'
+const rawData = fs.readFileSync(PATH)
 const data = JSON.parse(rawData);
 
 const app = express();
@@ -20,7 +21,7 @@ function createTransaction({title,amount,time}) {
     }
 
     const dadosModificados = JSON.stringify(data,null,2)
-    fs.writeFileSync('./Data/Mock-Data.json',dadosModificados)
+    fs.writeFileSync(PATH,dadosModificados)
 }
 
 
@@ -28,9 +29,6 @@ app.use(express.json())
 
 app.get('/transactions',(req,res) => {
 
-    // console.log(data.data);
-    // createTransaction({title:"Teste 1", amount:"3000",time:"03:00"})
-    // console.log(data.data);
 
     const returnData = data.data
 
