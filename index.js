@@ -126,21 +126,7 @@ app.put('/transactions',(req,res)=>{
 })
 
 
-// app.post('/transactions/:id',(req,res) => {
-    
-//     const { id } = req.params;
-//     const { logo } = req.body;
 
-//     if(!logo){
-//         res.status(418).send({message:"We need a logo!"})
-
-//     }
-
-//     res.send({
-//         tshirt:`Blusa with your ${logo} and ID of ${id}`
-//     })
-
-// })
 
 
 
