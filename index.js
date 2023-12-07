@@ -33,6 +33,17 @@ function createTransaction({title,amount,time}) {
     fs.writeFileSync(PATH,dadosModificados)
 }
 
+function verifyNullData(props){
+
+    if(props.title == null || props.amount == null || props.time == null){
+        return true;
+
+    }else{
+        return false
+    }
+
+}
+
 
 app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 app.use(express.json())
@@ -100,10 +111,12 @@ app.put('/transactions',(req,res)=>{
 
     try {
         
-        
+        if(!verifyNullData(req.query)){
         createTransaction({title:title, amount:amount,time:time})
-     
         res.status(201).send();
+        }else{
+            res.status(418).send({message:"We need a title, amount and time!"})
+        }
         
     } catch (error) {
         
