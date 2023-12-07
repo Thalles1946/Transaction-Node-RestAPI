@@ -7,12 +7,20 @@ const app = express();
 
 const PATH = './data/Mock-Data.json'
 const rawData = fs.readFileSync(PATH)
-const data = JSON.parse(rawData);
+
+var data;
+
+try {
+    data = JSON.parse(rawData)
+} catch (error) {
+    fs.writeFileSync(PATH,'{"data":[]}')
+    data = JSON.parse(rawData)
+}
+
 const PORT = 8000;
 
 
 function createTransaction({title,amount,time}) {
-
     if(data.data.length>0){
 
         data.data.push({title:title,amount:amount,time:time,id:data.data[data.data.length-1].id+1})

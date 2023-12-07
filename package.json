@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "initiate":"mkdir data && touch ./data/Mock-Data.json && npm install",
     "start": "node ."
   },
   "keywords": [],
