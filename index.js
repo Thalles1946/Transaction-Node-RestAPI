@@ -34,7 +34,7 @@ function createTransaction({title,amount,time}) {
 }
 
 
-app.use('/api-docs/v1',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 app.use(express.json())
 
 
@@ -76,21 +76,27 @@ app.get('/transactions',(req,res) => {
  *   put:
  *      summary: Adiciona operação
  *      description: Cria uma nova operação e adiciona-a na lista de operações feitas com o PUT, sendo possível acessá-la através do GET
+ *      parameters:
+ *          - in: query
+ *            name: title
+ *            schema:
+ *              type: string
+ *          - in: query
+ *            name: amount
+ *            schema:
+ *              type: float
+ *          - in: query
+ *            name: time
+ *            schema:
+ *              type: string
  *      responses:
  *          201:
  *              description: Sucesso
- *              content:
- *                  application/json:
- *                      schema:
- *                          data:
- *                              type: array
- *                              properties:
- *                                  title:
- *                                      type:string
+ *              
  *                                   
  */
 app.put('/transactions',(req,res)=>{
-    const {title,amount,time} = req.body
+    const {title,amount,time} = req.query
 
     try {
         
@@ -107,21 +113,21 @@ app.put('/transactions',(req,res)=>{
 })
 
 
-app.post('/transactions/:id',(req,res) => {
+// app.post('/transactions/:id',(req,res) => {
     
-    const { id } = req.params;
-    const { logo } = req.body;
+//     const { id } = req.params;
+//     const { logo } = req.body;
 
-    if(!logo){
-        res.status(418).send({message:"We need a logo!"})
+//     if(!logo){
+//         res.status(418).send({message:"We need a logo!"})
 
-    }
+//     }
 
-    res.send({
-        tshirt:`Blusa with your ${logo} and ID of ${id}`
-    })
+//     res.send({
+//         tshirt:`Blusa with your ${logo} and ID of ${id}`
+//     })
 
-})
+// })
 
 
 
